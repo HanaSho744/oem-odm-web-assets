@@ -21,7 +21,7 @@
             --text-grey: #475569;
             --bg-light: #f8fafc;
             --white: #ffffff;
-            --section-spacing: 100px; /* Increased spacing */
+            --section-spacing: 100px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,10 +30,24 @@
             font-family: 'Roboto', 'Noto Sans JP', sans-serif;
             color: var(--text-dark);
             background-color: #f1f5f9;
-            line-height: 1.8; /* Increased line-height */
-            font-size: 18px; /* Increased base font size */
+            line-height: 1.8;
+            font-size: 18px;
             overflow-x: hidden;
         }
+
+        /* --- LANGUAGE CONTROL SYSTEM --- */
+        /* Default: Hide all language specific elements */
+        .lang-jp, .lang-en, .lang-ar { display: none; }
+
+        /* Show based on body class */
+        body.lang-jp .lang-jp { display: block; }
+        body.lang-en .lang-en { display: block; }
+        body.lang-ar .lang-ar { display: block; }
+
+        /* Specific fix for inline-block elements like nav links */
+        body.lang-jp span.lang-jp, body.lang-jp a.lang-jp { display: inline-block; }
+        body.lang-en span.lang-en, body.lang-en a.lang-en { display: inline-block; }
+        body.lang-ar span.lang-ar, body.lang-ar a.lang-ar { display: inline-block; }
 
         /* ARABIC RTL SUPPORT */
         body.lang-ar {
@@ -42,12 +56,6 @@
             text-align: right;
         }
         
-        /* LANGUAGE VISIBILITY CONTROL */
-        .lang-content { display: none; }
-        body.lang-jp .lang-jp { display: block; }
-        body.lang-en .lang-en { display: block; }
-        body.lang-ar .lang-ar { display: block; }
-
         /* --- NAVIGATION --- */
         header {
             background: rgba(255, 255, 255, 0.98);
@@ -58,7 +66,7 @@
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             padding: 0 4%;
-            height: 80px; /* Increased height */
+            height: 80px;
             display: flex;
             align-items: center;
         }
@@ -74,7 +82,7 @@
 
         .logo {
             font-weight: 900;
-            font-size: 26px; /* Larger Logo */
+            font-size: 26px;
             color: var(--primary-blue);
             letter-spacing: 1.5px;
             text-decoration: none;
@@ -85,14 +93,14 @@
 
         .nav-links {
             display: flex;
-            gap: 30px; /* More space between links */
+            gap: 30px;
         }
 
         .nav-links a {
             color: var(--text-dark);
             text-decoration: none;
-            font-weight: 700; /* Bolder */
-            font-size: 16px; /* Larger text */
+            font-weight: 700;
+            font-size: 16px;
             transition: color 0.3s;
             position: relative;
         }
@@ -145,15 +153,15 @@
             color: white;
             background: #0f172a;
             overflow: hidden;
-            margin-top: 80px; /* Offset for header */
+            margin-top: 80px;
         }
         
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.5;
+            opacity: 0.6;
             object-fit: cover;
-            filter: brightness(0.7);
+            filter: brightness(0.6);
         }
         
         .hero-content {
@@ -173,22 +181,10 @@
         }
         
         .hero p {
-            font-size: 1.5rem; /* Larger hero text */
+            font-size: 1.5rem;
             color: #e2e8f0;
             margin-bottom: 50px;
-       
-/* Hide nav links for inactive languages */
-.nav-links a.lang-en,
-.nav-links a.lang-ar,
-.nav-links a.lang-jp {
-    display: none;
-}
-body.lang-jp .nav-links a.lang-jp,
-body.lang-en .nav-links a.lang-en,
-body.lang-ar .nav-links a.lang-ar {
-    display: inline-block;
-}
-     font-weight: 500;
+            font-weight: 500;
         }
 
         .cta-button {
@@ -269,9 +265,7 @@ body.lang-ar .nav-links a.lang-ar {
             font-weight: 800;
         }
         
-        .feature-card p {
-            font-size: 1.1rem;
-        }
+        .feature-card p { font-size: 1.1rem; }
 
         .feature-card ul {
             list-style: none;
@@ -320,9 +314,7 @@ body.lang-ar .nav-links a.lang-ar {
             position: absolute;
             transition: transform 0.5s;
         }
-        .case-study:hover .case-image img {
-            transform: scale(1.03);
-        }
+        .case-study:hover .case-image img { transform: scale(1.03); }
         
         .case-content {
             padding: 60px;
@@ -387,15 +379,8 @@ body.lang-ar .nav-links a.lang-ar {
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
 
-        .consulting-content h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .consulting-content p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 600px;
-        }
+        .consulting-content h3 { font-size: 2rem; margin-bottom: 15px; }
+        .consulting-content p { font-size: 1.2rem; color: #cbd5e1; max-width: 600px; }
 
         .partner-link {
             background: var(--primary-gold);
@@ -466,7 +451,7 @@ body.lang-ar .nav-links a.lang-ar {
             .case-study { grid-template-columns: 1fr; }
             .case-image { min-height: 250px; }
             .consulting-banner { flex-direction: column; text-align: center; padding: 40px; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; }
             .lang-switcher { margin-left: auto; }
         }
     </style>
@@ -481,16 +466,19 @@ body.lang-ar .nav-links a.lang-ar {
             </a>
             
             <div class="nav-links">
+                <!-- Japanese Nav -->
                 <a href="#about" class="lang-jp">会社概要</a>
-                <a href="#about" class="lang-en">About</a>
-                <a href="#about" class="lang-ar">حول الشركة</a>
-                
                 <a href="#services" class="lang-jp">サービス</a>
-                <a href="#services" class="lang-en">Services</a>
-                <a href="#services" class="lang-ar">خدماتنا</a>
-                
                 <a href="#cases" class="lang-jp">事例紹介</a>
+                
+                <!-- English Nav -->
+                <a href="#about" class="lang-en">About</a>
+                <a href="#services" class="lang-en">Services</a>
                 <a href="#cases" class="lang-en">Case Studies</a>
+                
+                <!-- Arabic Nav -->
+                <a href="#about" class="lang-ar">حول الشركة</a>
+                <a href="#services" class="lang-ar">خدماتنا</a>
                 <a href="#cases" class="lang-ar">دراسات الحالة</a>
             </div>
 
@@ -504,8 +492,8 @@ body.lang-ar .nav-links a.lang-ar {
 
     <!-- HERO -->
     <section class="hero">
-        <!-- New Image: Port/Trade/Global Business -->
-        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80" class="hero-bg" alt="Global Trade Network">
+        <!-- Optimized Image: Modern Business/Tech/Connection -->
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" class="hero-bg" alt="Global Trade Network">
         <div class="hero-content">
             <div class="lang-jp">
                 <p style="color: #00d2ff; font-weight:700; letter-spacing:2px; margin-bottom:15px; font-size: 1.2rem;">SHENZHEN KINISHO TRADING</p>
@@ -753,9 +741,8 @@ body.lang-ar .nav-links a.lang-ar {
         <!-- Case A: Vending -->
         <div class="case-study">
             <div class="case-image">
-                <!-- New Image: Vending Machine/Retail -->
-                [Image of Vending Machine]
-                <img src="https://images.unsplash.com/photo-1622675363311-ac97f3a9a301?auto=format&fit=crop&w=800&q=80" alt="Smart Vending Machine">
+                <!-- Optimized Image: Modern Vending Kiosk -->
+                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" alt="Smart Vending Machine">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
@@ -820,18 +807,16 @@ body.lang-ar .nav-links a.lang-ar {
                 </div>
             </div>
             <div class="case-image">
-                <!-- New Image: Beauty Device/Spa -->
-                [Image of Beauty Device]
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Beauty Device">
+                <!-- Optimized Image: Clean Skincare/Beauty -->
+                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="Beauty Device">
             </div>
         </div>
 
         <!-- Case C: IP Figures -->
         <div class="case-study">
             <div class="case-image">
-                <!-- New Image: Figurine/Craft -->
-                [Image of Collectible Figure]
-                <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&w=800&q=80" alt="High End Figure">
+                <!-- Optimized Image: Collectible Toy/Figure -->
+                <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=800&q=80" alt="High End Figure">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
@@ -871,6 +856,12 @@ body.lang-ar .nav-links a.lang-ar {
             <h2 style="margin-bottom:30px; color:white;">Contact Us</h2>
             <div class="lang-jp">
                 <p>まずは、お気軽にご相談ください。</p>
+            </div>
+            <div class="lang-en lang-content">
+                <p>Feel free to contact us anytime.</p>
+            </div>
+            <div class="lang-ar lang-content">
+                <p>لا تتردد في الاتصال بنا.</p>
             </div>
             
             <div style="margin-top: 30px;">
