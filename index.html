@@ -35,8 +35,8 @@
             overflow-x: hidden;
         }
 
-        /* --- LANGUAGE CONTROL SYSTEM --- */
-        /* Default: Hide all language specific elements */
+        /* --- LANGUAGE CONTROL SYSTEM (Optimized) --- */
+        /* By default, hide all language elements to prevent flash */
         .lang-jp, .lang-en, .lang-ar { display: none; }
 
         /* Show based on body class */
@@ -44,10 +44,10 @@
         body.lang-en .lang-en { display: block; }
         body.lang-ar .lang-ar { display: block; }
 
-        /* Specific fix for inline-block elements like nav links */
-        body.lang-jp span.lang-jp, body.lang-jp a.lang-jp { display: inline-block; }
-        body.lang-en span.lang-en, body.lang-en a.lang-en { display: inline-block; }
-        body.lang-ar span.lang-ar, body.lang-ar a.lang-ar { display: inline-block; }
+        /* Flex/Inline Fixes for Nav and Buttons */
+        body.lang-jp a.lang-jp, body.lang-jp span.lang-jp { display: inline-block; }
+        body.lang-en a.lang-en, body.lang-en span.lang-en { display: inline-block; }
+        body.lang-ar a.lang-ar, body.lang-ar span.lang-ar { display: inline-block; }
 
         /* ARABIC RTL SUPPORT */
         body.lang-ar {
@@ -492,8 +492,8 @@
 
     <!-- HERO -->
     <section class="hero">
-        <!-- Optimized Image: Modern Business/Tech/Connection -->
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" class="hero-bg" alt="Global Trade Network">
+        <!-- New Image: High-end Global Trade/Logistics -->
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" class="hero-bg" alt="Global Trade Network">
         <div class="hero-content">
             <div class="lang-jp">
                 <p style="color: #00d2ff; font-weight:700; letter-spacing:2px; margin-bottom:15px; font-size: 1.2rem;">SHENZHEN KINISHO TRADING</p>
@@ -741,8 +741,8 @@
         <!-- Case A: Vending -->
         <div class="case-study">
             <div class="case-image">
-                <!-- Optimized Image: Modern Vending Kiosk -->
-                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" alt="Smart Vending Machine">
+                <!-- New Image: Smart Vending/Retail Kiosk -->
+                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" alt="Smart Vending Machine">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
@@ -807,16 +807,16 @@
                 </div>
             </div>
             <div class="case-image">
-                <!-- Optimized Image: Clean Skincare/Beauty -->
-                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="Beauty Device">
+                <!-- New Image: Minimalist Skincare/Tech -->
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?auto=format&fit=crop&w=800&q=80" alt="Beauty Device">
             </div>
         </div>
 
         <!-- Case C: IP Figures -->
         <div class="case-study">
             <div class="case-image">
-                <!-- Optimized Image: Collectible Toy/Figure -->
-                <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=800&q=80" alt="High End Figure">
+                <!-- New Image: Detailed Craftsmanship -->
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=800&q=80" alt="High End Figure">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
