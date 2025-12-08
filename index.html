@@ -36,18 +36,21 @@
         }
 
         /* --- LANGUAGE CONTROL SYSTEM (Optimized) --- */
-        /* By default, hide all language elements to prevent flash */
-        .lang-jp, .lang-en, .lang-ar { display: none; }
+        /* 默认隐藏所有语言块 */
+        .lang-jp,
+        .lang-en,
+        .lang-ar {
+            display: none;
+        }
 
-        /* Show based on body class */
-        body.lang-jp .lang-jp { display: block; }
-        body.lang-en .lang-en { display: block; }
-        body.lang-ar .lang-ar { display: block; }
-
-        /* Flex/Inline Fixes for Nav and Buttons */
-        body.lang-jp a.lang-jp, body.lang-jp span.lang-jp { display: inline-block; }
-        body.lang-en a.lang-en, body.lang-en span.lang-en { display: inline-block; }
-        body.lang-ar a.lang-ar, body.lang-ar span.lang-ar { display: inline-block; }
+        /* 根据 body 上的语言 class 显示对应语言
+           使用 display: initial 恢复元素原本的 display 类型
+          （导航 <a> 仍为 inline，div 仍为 block） */
+        body.lang-jp .lang-jp,
+        body.lang-en .lang-en,
+        body.lang-ar .lang-ar {
+            display: initial;
+        }
 
         /* ARABIC RTL SUPPORT */
         body.lang-ar {
@@ -310,7 +313,9 @@
             min-height: 500px;
         }
         .case-image img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: absolute;
             transition: transform 0.5s;
         }
@@ -483,16 +488,16 @@
             </div>
 
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="setLang('jp')">JP</button>
-                <button class="lang-btn" onclick="setLang('en')">EN</button>
-                <button class="lang-btn" onclick="setLang('ar')">AR</button>
+                <button class="lang-btn active" data-lang="jp" onclick="setLang('jp')">JP</button>
+                <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
             </div>
         </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-        <!-- New Image: High-end Global Trade/Logistics -->
+        <!-- Global Trade / Business Image -->
         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" class="hero-bg" alt="Global Trade Network">
         <div class="hero-content">
             <div class="lang-jp">
@@ -501,13 +506,13 @@
                 <p>深センのサプライチェーン × 日本のブランド力。<br>貿易からコンサルティングまで、ビジネスの全工程を加速します。</p>
                 <a href="#contact" class="cta-button">お問い合わせ</a>
             </div>
-            <div class="lang-en lang-content">
+            <div class="lang-en">
                 <p style="color: #00d2ff; font-weight:700; letter-spacing:2px; margin-bottom:15px; font-size: 1.2rem;">SHENZHEN KINISHO TRADING</p>
                 <h1>Connect Value,<br>Create Future.</h1>
                 <p>Bridging Shenzhen's Supply Chain with Global Brand Power.<br>Accelerating your business from Trading to Strategic Consulting.</p>
                 <a href="#contact" class="cta-button">Contact Us</a>
             </div>
-            <div class="lang-ar lang-content">
+            <div class="lang-ar">
                 <p style="color: #00d2ff; font-weight:700; letter-spacing:2px; margin-bottom:15px; font-size: 1.2rem;">شنتشن كينيشو للتجارة</p>
                 <h1>ربط القيمة،<br>صنع المستقبل.</h1>
                 <p>جسر يربط سلسلة توريد شنتشن بقوة العلامات التجارية العالمية.<br>نسرع أعمالك من التجارة إلى الاستشارات الاستراتيجية.</p>
@@ -523,11 +528,11 @@
                 <h2>会社概要 & 強み</h2>
                 <p>拠点：中国・深セン（製造ハブ） + 日本側PM体制</p>
             </div>
-            <div class="lang-en lang-content">
+            <div class="lang-en">
                 <h2>Overview & Strengths</h2>
                 <p>HQ: Shenzhen (Manufacturing Hub) + Japan PM Team</p>
             </div>
-            <div class="lang-ar lang-content">
+            <div class="lang-ar">
                 <h2>لمحة عامة ونقاط القوة</h2>
                 <p>المقر الرئيسي: شنتشن (مركز التصنيع) + فريق إدارة المشاريع في اليابان</p>
             </div>
@@ -539,11 +544,11 @@
                     <strong><i class="fa-solid fa-pen-ruler"></i> DFX (Design for X)</strong>
                     品質・コスト・法規制を設計段階から織り込む開発手法。
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <strong><i class="fa-solid fa-pen-ruler"></i> DFX (Design for X)</strong>
                     Integrating quality, cost, and compliance from the design phase.
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <strong><i class="fa-solid fa-pen-ruler"></i> التصميم من أجل التميز (DFX)</strong>
                     دمج الجودة والتكلفة والامتثال من مرحلة التصميم.
                 </div>
@@ -553,11 +558,11 @@
                     <strong><i class="fa-solid fa-bolt"></i> Speed (EVT/DVT/PVT)</strong>
                     試作(EVT)から量産試作(PVT)までを短サイクルで回し、TATを短縮。
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <strong><i class="fa-solid fa-bolt"></i> Speed (EVT/DVT/PVT)</strong>
                     Rapid prototyping cycles to shorten Turn-Around Time (TAT).
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <strong><i class="fa-solid fa-bolt"></i> السرعة (EVT/DVT/PVT)</strong>
                     دورات نماذج أولية سريعة لتقصير وقت التنفيذ (TAT).
                 </div>
@@ -567,11 +572,11 @@
                     <strong><i class="fa-solid fa-check-double"></i> QA (品質保証)</strong>
                     AQL基準の抜取検査、QC工程表による工程管理、初期流動管理。
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <strong><i class="fa-solid fa-check-double"></i> QA (Quality Assurance)</strong>
                     AQL inspection, QC process charts, and initial flow management.
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <strong><i class="fa-solid fa-check-double"></i> ضمان الجودة (QA)</strong>
                     فحص AQL، ومخططات عمليات مراقبة الجودة، وإدارة التدفق الأولي.
                 </div>
@@ -581,11 +586,11 @@
                     <strong><i class="fa-solid fa-file-contract"></i> Compliance</strong>
                     PSE, 技適, 薬機法, RoHSなど、仕向け国の法規制適合を一貫対応。
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <strong><i class="fa-solid fa-file-contract"></i> Compliance</strong>
                     End-to-end support for PSE, Radio Act, RoHS, and local regulations.
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <strong><i class="fa-solid fa-file-contract"></i> الامتثال</strong>
                     دعم شامل لـ PSE، وقانون الراديو، و RoHS، واللوائح المحلية.
                 </div>
@@ -608,7 +613,7 @@
                         <li>IPフィギュア・精密工芸品</li>
                     </ul>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <h3>1. Supply Chain (OEM/ODM)</h3>
                     <p>Hardware planning, manufacturing, and export.</p>
                     <ul>
@@ -617,7 +622,7 @@
                         <li>IP Figures & Precision Crafts</li>
                     </ul>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <h3>1. سلسلة التوريد (OEM/ODM)</h3>
                     <p>تخطيط وتصنيع وتصدير الأجهزة.</p>
                     <ul>
@@ -640,7 +645,7 @@
                         <li>流通加工 (検品・ラベル貼り・梱包)</li>
                     </ul>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <h3>2. Marketing Support</h3>
                     <p>China market entry and brand awareness.</p>
                     <ul>
@@ -649,7 +654,7 @@
                         <li>Value-added Services (Inspection/Labeling)</li>
                     </ul>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <h3>2. دعم التسويق</h3>
                     <p>دخول السوق الصيني والوعي بالعلامة التجارية.</p>
                     <ul>
@@ -672,7 +677,7 @@
                         <li><strong style="color:var(--primary-gold);">吉川国際貿易諮詢</strong> との連携</li>
                     </ul>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <h3>3. Consulting</h3>
                     <p>Strategic Partnership.</p>
                     <ul>
@@ -681,7 +686,7 @@
                         <li>Partner: <strong style="color:var(--primary-gold);">Yoshikawa Int'l Consulting</strong></li>
                     </ul>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <h3>3. الاستشارات</h3>
                     <p>شراكة استراتيجية.</p>
                     <ul>
@@ -702,11 +707,11 @@
                     <h3><i class="fa-solid fa-briefcase"></i> 戦略コンサルティング部門</h3>
                     <p>市場調査から法的リスク管理まで、専門家がバックアップします。</p>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <h3><i class="fa-solid fa-briefcase"></i> Strategic Consulting Division</h3>
                     <p>Expert backup from market research to legal risk management.</p>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <h3><i class="fa-solid fa-briefcase"></i> قسم الاستشارات الاستراتيجية</h3>
                     <p>دعم الخبراء من أبحاث السوق إلى إدارة المخاطر القانونية.</p>
                 </div>
@@ -717,12 +722,12 @@
                     吉川国際貿易諮詢有限公司 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
-            <div class="lang-en lang-content">
+            <div class="lang-en">
                 <a href="https://www.yoshikawa-trading.com" target="_blank" class="partner-link">
                     Yoshikawa Int'l Trade Consulting <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
-            <div class="lang-ar lang-content">
+            <div class="lang-ar">
                 <a href="https://www.yoshikawa-trading.com" target="_blank" class="partner-link">
                     يوشيكاوا للاستشارات التجارية الدولية <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
@@ -734,15 +739,15 @@
     <section id="cases">
         <div class="section-header">
             <div class="lang-jp"><h2>実績紹介 (Case Studies)</h2></div>
-            <div class="lang-en lang-content"><h2>Case Studies</h2></div>
-            <div class="lang-ar lang-content"><h2>دراسات الحالة</h2></div>
+            <div class="lang-en"><h2>Case Studies</h2></div>
+            <div class="lang-ar"><h2>دراسات الحالة</h2></div>
         </div>
 
         <!-- Case A: Vending -->
         <div class="case-study">
             <div class="case-image">
-                <!-- New Image: Smart Vending/Retail Kiosk -->
-                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" alt="Smart Vending Machine">
+                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1200&q=80" 
+                     alt="Smart Vending Machine" loading="lazy">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
@@ -754,7 +759,7 @@
                         <div class="metric"><strong>0%</strong><span>商品詰まり率 (Jamming)</span></div>
                     </div>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <span class="case-tag">Case A: Smart Vending</span>
                     <h3>Unmanned Retail Solution</h3>
                     <p><strong>Challenge:</strong> Product jamming, high OpEx.<br><strong>Solution:</strong> Custom spiral mechanism, full store package with LED signage & security gates.</p>
@@ -763,7 +768,7 @@
                         <div class="metric"><strong>0%</strong><span>Jamming Rate</span></div>
                     </div>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <span class="case-tag">الحالة أ: البيع الذكي</span>
                     <h3>حل التجزئة غير المأهولة</h3>
                     <p><strong>التحدي:</strong> تكدس المنتجات، ارتفاع تكاليف التشغيل.<br><strong>الحل:</strong> آلية لولبية مخصصة، حزمة متجر كاملة مع لافتات LED وبوابات أمان.</p>
@@ -787,7 +792,7 @@
                         <div class="metric"><strong>11.9%</strong><span>市場成長率 (Growth)</span></div>
                     </div>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <span class="case-tag">Case B: Beauty & Care</span>
                     <h3>RF Facial Device & Shower Head</h3>
                     <p><strong>Challenge:</strong> High mold cost, compliance.<br><strong>Solution:</strong> Shared module design (DFX), PSE/Sanitation Law support.</p>
@@ -796,27 +801,27 @@
                         <div class="metric"><strong>11.9%</strong><span>Market Growth</span></div>
                     </div>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <span class="case-tag">الحالة ب: التجميل والعناية</span>
                     <h3>جهاز الوجه RF ورأس الدش</h3>
-                    <p><strong>التحدي:</strong> تكلفة القوالب العالية، الامتثال.<br><strong>الحل:</strong> تصميم وحدة مشتركة (DFX)، دعم PSE/قانون الصرف الصحي.</p>
+                    <p><strong>التحدي:</strong> تكلفة القوالب العالية، الامتثال.<br><strong>الحل:</strong> تصميم وحدة مشتركة (DFX)، دعم PSE/قانون الصرف الصحي。</p>
                     <div class="metrics-grid">
-                        <div class="metric"><strong>-60%</strong><span>خفص التكلفة الأولية</span></div>
+                        <div class="metric"><strong>-60%</strong><span>خفض التكلفة الأولية</span></div>
                         <div class="metric"><strong>11.9%</strong><span>نمو السوق</span></div>
                     </div>
                 </div>
             </div>
             <div class="case-image">
-                <!-- New Image: Minimalist Skincare/Tech -->
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?auto=format&fit=crop&w=800&q=80" alt="Beauty Device">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?auto=format&fit=crop&w=1200&q=80" 
+                     alt="Beauty Device" loading="lazy">
             </div>
         </div>
 
         <!-- Case C: IP Figures -->
         <div class="case-study">
             <div class="case-image">
-                <!-- New Image: Detailed Craftsmanship -->
-                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=800&q=80" alt="High End Figure">
+                <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=1200&q=80" 
+                     alt="High End Figure" loading="lazy">
             </div>
             <div class="case-content">
                 <div class="lang-jp">
@@ -828,7 +833,7 @@
                         <div class="metric"><strong>100%</strong><span>出荷前検品 (Inspection)</span></div>
                     </div>
                 </div>
-                <div class="lang-en lang-content">
+                <div class="lang-en">
                     <span class="case-tag">Case C: IP Collectibles</span>
                     <h3>High-end Figures (ODM)</h3>
                     <p><strong>Challenge:</strong> Paint defects, glue residue.<br><strong>Solution:</strong> On-site resident engineers, 100% inspection stricter than AQL.</p>
@@ -837,7 +842,7 @@
                         <div class="metric"><strong>100%</strong><span>Pre-shipment Inspection</span></div>
                     </div>
                 </div>
-                <div class="lang-ar lang-content">
+                <div class="lang-ar">
                     <span class="case-tag">الحالة ج: مقتنيات IP</span>
                     <h3>مجسمات راقية (ODM)</h3>
                     <p><strong>التحدي:</strong> عيوب الطلاء، بقايا الغراء.<br><strong>الحل:</strong> مهندسون مقيمون في الموقع، فحص 100٪ أكثر صرامة من AQL.</p>
@@ -857,10 +862,10 @@
             <div class="lang-jp">
                 <p>まずは、お気軽にご相談ください。</p>
             </div>
-            <div class="lang-en lang-content">
+            <div class="lang-en">
                 <p>Feel free to contact us anytime.</p>
             </div>
-            <div class="lang-ar lang-content">
+            <div class="lang-ar">
                 <p>لا تتردد في الاتصال بنا.</p>
             </div>
             
@@ -878,15 +883,14 @@
 
     <script>
         function setLang(lang) {
-            // Remove active class from all buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(btn => btn.innerText.toLowerCase().includes(lang));
-            if(activeBtn) activeBtn.classList.add('active');
+            // 清除 body 上已有的语言 class
+            document.body.classList.remove('lang-jp', 'lang-en', 'lang-ar');
+            document.body.classList.add('lang-' + lang);
 
-            // Set body class
-            document.body.className = `lang-${lang}`;
+            // 按钮高亮状态切换
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
         }
     </script>
 </body>
