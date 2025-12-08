@@ -176,7 +176,19 @@
             font-size: 1.5rem; /* Larger hero text */
             color: #e2e8f0;
             margin-bottom: 50px;
-            font-weight: 500;
+       
+/* Hide nav links for inactive languages */
+.nav-links a.lang-en,
+.nav-links a.lang-ar,
+.nav-links a.lang-jp {
+    display: none;
+}
+body.lang-jp .nav-links a.lang-jp,
+body.lang-en .nav-links a.lang-en,
+body.lang-ar .nav-links a.lang-ar {
+    display: inline-block;
+}
+     font-weight: 500;
         }
 
         .cta-button {
