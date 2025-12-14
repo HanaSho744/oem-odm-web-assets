@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joint Business Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .rtl { direction: rtl; }
+        .rtl .text-right-rtl { text-align: right; }
+        .rtl .text-left-rtl { text-align: left; }
+        .rtl .flex-row-reverse-rtl { flex-direction: row-reverse; }
+        .rtl .space-x-reverse-rtl > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-indigo-900 text-white py-4 px-6 fixed w-full top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-indigo-900">
+                    <i data-lucide="handshake"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight">Joint Business Plan</span>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="relative group">
+                <button class="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-all text-white font-medium">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span id="current-lang-name">日本語</span>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-2xl py-2 text-gray-800 border border-gray-100 overflow-hidden hidden group-hover:block">
+                    <button onclick="setLanguage('ja')" class="w-full text-left px-4 py-3 hover:bg-indigo-50 transition-colors flex items-center justify-between">日本語</button>
+                    <button onclick="setLanguage('zh')" class="w-full text-left px-4 py-3 hover:bg-indigo-50 transition-colors flex items-center justify-between">中文</button>
+                    <button onclick="setLanguage('en')" class="w-full text-left px-4 py-3 hover:bg-indigo-50 transition-colors flex items-center justify-between">English</button>
+                    <button onclick="setLanguage('ko')" class="w-full text-left px-4 py-3 hover:bg-indigo-50 transition-colors flex items-center justify-between">한국어</button>
+                    <button onclick="setLanguage('ar')" class="w-full text-left px-4 py-3 hover:bg-indigo-50 transition-colors flex items-center justify-between">العربية</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-32 pb-20 px-6 bg-gradient-to-br from-indigo-900 via-slate-800 to-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-500/30 border border-blue-300/30 text-blue-200 text-sm font-semibold tracking-wide">
+                   Draft: 2025.12.15
+                </span>
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight" data-key="hero.title"></h1>
+                <p class="text-xl text-gray-300 font-light border-l-4 border-yellow-500 pl-4" data-key="hero.subtitle"></p>
+                <p class="text-gray-400" data-key="hero.marketDesc"></p>
+                <div class="pt-4">
+                    <button class="px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-indigo-900 font-bold rounded-lg shadow-lg hover:shadow-yellow-500/20 transition-all flex items-center gap-2">
+                        <span data-key="hero.cta"></span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Dashboard Graphic -->
+            <div class="relative hidden md:block">
+                 <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow-2xl">
+                   <div class="grid grid-cols-2 gap-4">
+                      <div class="bg-white/10 p-4 rounded-lg">
+                        <div class="text-blue-400 mb-2"><i data-lucide="users"></i></div>
+                        <div class="text-sm text-gray-400">Target</div>
+                        <div class="font-bold">Major JP Corp</div>
+                      </div>
+                      <div class="bg-white/10 p-4 rounded-lg">
+                        <div class="text-red-400 mb-2"><i data-lucide="target"></i></div>
+                        <div class="text-sm text-gray-400">Goal</div>
+                        <div class="font-bold">B2B Matching</div>
+                      </div>
+                      <div class="bg-white/10 p-4 rounded-lg col-span-2">
+                        <div class="text-green-400 mb-2"><i data-lucide="dollar-sign"></i></div>
+                        <div class="text-sm text-gray-400">Model</div>
+                        <div class="font-bold">Success Fee + Upfront PR</div>
+                      </div>
+                   </div>
+                 </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section class="py-16 px-6 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="md:w-1/3">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4" data-key="about.title"></h2>
+                    <p class="text-gray-600 leading-relaxed" data-key="about.desc"></p>
+                    <div class="mt-6 flex gap-4">
+                        <div class="px-3 py-1 bg-gray-100 rounded text-sm font-semibold text-gray-600">TSE: 6038</div>
+                        <div class="px-3 py-1 bg-gray-100 rounded text-sm font-semibold text-gray-600">Est. 2000</div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 grid gap-4">
+                    <div class="flex items-start gap-4 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500">
+                        <i data-lucide="check-circle" class="shrink-0 text-indigo-600 mt-1"></i>
+                        <p class="text-gray-800 font-medium" data-key="about.point1"></p>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500">
+                        <i data-lucide="check-circle" class="shrink-0 text-indigo-600 mt-1"></i>
+                        <p class="text-gray-800 font-medium" data-key="about.point2"></p>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500">
+                        <i data-lucide="check-circle" class="shrink-0 text-indigo-600 mt-1"></i>
+                        <p class="text-gray-800 font-medium" data-key="about.point3"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media -->
+    <section class="py-16 px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-gray-900" data-key="media.title"></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Response -->
+                <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-red-600 text-white px-3 py-1 rounded font-bold">R</span>
+                        <h3 class="text-xl font-bold" data-key="media.m1_name"></h3>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 block" data-key="media.m1_tag"></span>
+                    <p class="text-gray-600" data-key="media.m1_desc"></p>
+                </div>
+                <!-- Robosta -->
+                <div class="bg-white rounded-xl shadow-sm p-8 border border-gray-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded font-bold">RS</span>
+                        <h3 class="text-xl font-bold" data-key="media.m2_name"></h3>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 block">Robot / AI</span>
+                    <p class="text-gray-600" data-key="media.m2_desc"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schemes -->
+    <section class="py-20 px-6 bg-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center">
+                <span class="text-blue-400 font-bold tracking-wider uppercase text-sm">Service Lineup</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2" data-key="schemes.title"></h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- S1 -->
+                <div class="md:col-span-1 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 border border-blue-500/50 shadow-lg relative">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-indigo-900 text-xs font-bold px-2 py-1 rounded uppercase">CORE</div>
+                    <div class="mb-6 text-white"><i data-lucide="users" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-3" data-key="schemes.s1_title"></h3>
+                    <p class="text-blue-100 text-sm leading-relaxed" data-key="schemes.s1_desc"></p>
+                </div>
+                <!-- S2 -->
+                <div class="md:col-span-1 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="mb-6 text-green-400"><i data-lucide="building-2" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-3" data-key="schemes.s2_title"></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-key="schemes.s2_desc"></p>
+                </div>
+                <!-- S3 -->
+                <div class="md:col-span-1 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="mb-6 text-purple-400"><i data-lucide="file-text" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-3" data-key="schemes.s3_title"></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-key="schemes.s3_desc"></p>
+                </div>
+                <!-- S4 -->
+                <div class="md:col-span-1 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/15 transition-colors">
+                    <div class="mb-6 text-orange-400"><i data-lucide="globe" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-3" data-key="schemes.s4_title"></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-key="schemes.s4_desc"></p>
+                </div>
+                <!-- S5 -->
+                <div class="md:col-span-2 bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 border border-gray-600 flex flex-col md:flex-row items-center gap-6">
+                    <div class="shrink-0 bg-gray-900 p-4 rounded-full">
+                        <div class="text-cyan-400"><i data-lucide="trending-up" class="w-8 h-8"></i></div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2" data-key="schemes.s5_title"></h3>
+                        <p class="text-gray-300 text-sm" data-key="schemes.s5_desc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900" data-key="pricing.title"></h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- P1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-indigo-600 text-center relative z-10 scale-105">
+                    <h3 class="text-gray-500 font-semibold uppercase tracking-wider text-sm mb-4" data-key="pricing.p1_label"></h3>
+                    <div class="text-3xl font-bold text-indigo-900 mb-4" data-key="pricing.p1_price"></div>
+                    <div class="h-px w-16 bg-gray-200 mx-auto mb-4"></div>
+                    <p class="text-gray-600 text-sm" data-key="pricing.p1_detail"></p>
+                </div>
+                <!-- P2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 text-center">
+                    <h3 class="text-gray-500 font-semibold uppercase tracking-wider text-sm mb-4" data-key="pricing.p2_label"></h3>
+                    <div class="text-3xl font-bold text-gray-800 mb-4" data-key="pricing.p2_price"></div>
+                    <div class="h-px w-16 bg-gray-200 mx-auto mb-4"></div>
+                    <p class="text-gray-600 text-sm" data-key="pricing.p2_detail"></p>
+                </div>
+                <!-- P3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 text-center">
+                    <h3 class="text-gray-500 font-semibold uppercase tracking-wider text-sm mb-4" data-key="pricing.p3_label"></h3>
+                    <div class="text-2xl font-bold text-gray-800 mb-4 py-1" data-key="pricing.p3_price"></div>
+                    <div class="h-px w-16 bg-gray-200 mx-auto mb-4"></div>
+                    <p class="text-gray-600 text-sm" data-key="pricing.p3_detail"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future -->
+    <section class="py-16 px-6 bg-gray-900 text-gray-300">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center" data-key="future.title"></h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-center gap-3 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <i data-lucide="layers" class="text-blue-500"></i>
+                    <span class="font-medium" data-key="future.f1"></span>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <i data-lucide="layers" class="text-blue-500"></i>
+                    <span class="font-medium" data-key="future.f2"></span>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <i data-lucide="layers" class="text-blue-500"></i>
+                    <span class="font-medium" data-key="future.f3"></span>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <i data-lucide="layers" class="text-blue-500"></i>
+                    <span class="font-medium" data-key="future.f4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-6 text-center border-t border-gray-800">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8" data-key="footer.text"></h2>
+            <button class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-bold transition-all" data-key="footer.contact"></button>
+            <div class="mt-12 text-gray-600 text-xs">
+                <p>CONFIDENTIAL - FOR PARTNER REVIEW ONLY</p>
+                <p class="mt-2">Created: 2025.12.15</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations Data
+        
+const translations = {
+  ja: {
+    langName: "日本語",
+    dir: "ltr",
+    hero: {
+      title: "ロボット領域 BtoBマッチング・プロモーション共同事業",
+      subtitle: "株式会社イード (IID, Inc.) との戦略的アライアンス計画",
+      cta: "事業計画詳細を見る",
+      marketTitle: "メディアとネットワークを融合した新事業スキーム",
+      marketDesc: "単なる広告枠販売ではなく、セミナー・市場調査・商談セッティングまでを一気通貫で提供し、日中ロボット産業の架け橋となる収益モデルを構築します。"
+    },
+    about: {
+      title: "パートナー：株式会社イード (IID, Inc.)",
+      desc: "2000年設立、東証グロース上場 (証券コード: 6038)。21ジャンル79メディアを運営するコンテンツマーケティング企業。",
+      point1: "メディア力：月間数千万PVのリーチと、業界特化の信頼性。",
+      point2: "ネットワーク：大手企業の経営企画・技術部門への直接的なパイプ。",
+      point3: "資産価値：「Response」のモビリティ基盤と「ロボスタ」の専門性。"
+    },
+    media: {
+      title: "コアメディアの価値定義",
+      m1_name: "Response.jp (レスポンス)",
+      m1_tag: "モビリティ総合",
+      m1_desc: "月間2,800万PV。EV・自動運転・産業DXなど、ロボット周辺領域と親和性が高い。大手自動車メーカー・サプライヤーへのリーチに強み。",
+      m2_name: "ロボスタ (Robosta)",
+      m2_desc: "会員数1万人突破のロボット・AI専門メディア。実務家向けの技術情報源として機能し、中国企業の技術力を「第三者視点」で証明する場となる。"
+    },
+    schemes: {
+      title: "共同事業スキーム (5つの柱)",
+      s1_title: "セミナー起点商談創出",
+      s1_desc: "共催セミナーで集客し、一次チェック・面談を経て有望な商談のみをセッティング。成功報酬型モデル。",
+      s2_title: "有料プロデュース",
+      s2_desc: "ロボスタ登壇・取材・記事化をパッケージ化。前金制による確実な収益確保。",
+      s3_title: "商談用ロングリスト",
+      s3_desc: "イードのデータベースを活用し、ターゲット企業の詳細（導入部門・用途仮説）をリスト化して提供。",
+      s4_title: "日本市場参入支援",
+      s4_desc: "KOL連携、日本語Web制作、代理店マッチングなど、プロモーションの周辺領域を支援。",
+      s5_title: "展示会レポート (日本向)",
+      s5_desc: "中国の先端展示会を共同取材し、日本企業向けに有料レポート・報告会（1社50万円想定）を実施。"
+    },
+    pricing: {
+      title: "収益・料金モデル（案）",
+      p1_label: "商談セッティング",
+      p1_price: "30万円 / 社",
+      p1_detail: "レベニューシェア 50:50。質の高い事前スクリーニングが価値の源泉。",
+      p2_label: "レポート＋報告会",
+      p2_price: "50万円 / 社",
+      p2_detail: "日本企業向け課金。追加の個別調査は別途オプション。",
+      p3_label: "プロデュース",
+      p3_price: "個別見積",
+      p3_detail: "前金必須。登壇・取材・リード獲得導線をパッケージ化。"
+    },
+    future: {
+      title: "今後の拡張性・追加提案",
+      f1: "PoC設計支援（実証フィールド紹介・計画策定）",
+      f2: "市場・規制短期診断（法規制チェック）",
+      f3: "クロスメディアイベント（モビリティ×ロボット）",
+      f4: "人材教育支援（代理店向け研修資料作成）"
+    },
+    footer: {
+      text: "信頼と実績に基づく、持続可能なエコシステムへ。",
+      contact: "プロトタイプ・契約協議へ"
+    }
+  },
+  zh: {
+    langName: "中文",
+    dir: "ltr",
+    hero: {
+      title: "机器人领域 BtoB 匹配与推广联合业务",
+      subtitle: "与株式会社IID (IID, Inc.) 的战略联盟计划",
+      cta: "查看业务详情",
+      marketTitle: "融合媒体与网络的全新业务架构",
+      marketDesc: "不仅是销售广告位，而是提供从研讨会、市场调查到商务洽谈的一站式服务，构建连接中日机器人产业的盈利模式。"
+    },
+    about: {
+      title: "合作伙伴：株式会社IID (IID, Inc.)",
+      desc: "成立于2000年，东京证券交易所Growth板上市 (代码: 6038)。运营21个领域79家媒体的内容营销企业。",
+      point1: "媒体影响力：数千万月PV的覆盖率与行业垂直领域的公信力。",
+      point2: "企业网络：拥有直达大型企业经营企划与技术部门的渠道。",
+      point3: "核心资产：'Response'的移动出行基础与'Robosta'的专业性。"
+    },
+    media: {
+      title: "核心媒体价值定义",
+      m1_name: "Response.jp",
+      m1_tag: "综合移动出行",
+      m1_desc: "月PV 2800万。在EV、自动驾驶、工业DX等机器人周边领域拥有极高契合度。优势在于触达大型汽车制造商与供应商。",
+      m2_name: "Robosta",
+      m2_desc: "会员数突破1万的机器人/AI专业媒体。作为行业专家的技术情报源，是从'第三方视角'验证中国企业技术实力的最佳平台。"
+    },
+    schemes: {
+      title: "联合业务架构 (5大支柱)",
+      s1_title: "研讨会商机孵化",
+      s1_desc: "通过联合研讨会集客，经过初筛和面谈，仅安排高意向的商务洽谈。采用成功报酬模式。",
+      s2_title: "付费品牌打造",
+      s2_desc: "Robosta演讲、采访、文章发布的打包服务。采用预付制以确保收益。",
+      s3_title: "潜在客户长名单",
+      s3_desc: "利用IID数据库，整理并提供目标企业的详细信息（导入部门、用途假设等）。",
+      s4_title: "日本市场准入支持",
+      s4_desc: "KOL合作、日文网站制作、代理商匹配等周边推广支持。",
+      s5_title: "展会报告 (面向日企)",
+      s5_desc: "联合采访中国前沿展会，面向日本企业提供付费报告及汇报会（预计每家50万日元）。"
+    },
+    pricing: {
+      title: "收益与定价模型 (草案)",
+      p1_label: "商务洽谈安排",
+      p1_price: "30万日元 / 社",
+      p1_detail: "收益分成 50:50。高质量的事前筛选是价值的核心。",
+      p2_label: "报告 + 汇报会",
+      p2_price: "50万日元 / 社",
+      p2_detail: "面向日本企业收费。追加的个别调查作为额外选项。",
+      p3_label: "品牌全案",
+      p3_price: "个别报价",
+      p3_detail: "必须预付。包含演讲、采访及线索获取路径的打包服务。"
+    },
+    future: {
+      title: "未来的扩展性与建议",
+      f1: "PoC设计支持（实证场地介绍、计划制定）",
+      f2: "市场/法规短期诊断（合规性检查）",
+      f3: "跨媒体大型活动（移动出行 × 机器人）",
+      f4: "人才教育支持（代理商培训资料制作）"
+    },
+    footer: {
+      text: "建立基于信任与实绩的可持续生态系统。",
+      contact: "进入协议商讨阶段"
+    }
+  },
+  en: {
+    langName: "English",
+    dir: "ltr",
+    hero: {
+      title: "Joint Business: Robot BtoB Matching & Promotion",
+      subtitle: "Strategic Alliance Plan with IID, Inc.",
+      cta: "View Business Plan",
+      marketTitle: "New Scheme Fusing Media & Network",
+      marketDesc: "Going beyond ad sales to provide a one-stop service from seminars to market research and meeting setups, bridging the Japan-China robot industry."
+    },
+    about: {
+      title: "Partner: IID, Inc.",
+      desc: "Founded in 2000, TSE Growth Listed (6038). A content marketing firm operating 79 media across 21 genres.",
+      point1: "Media Power: Monthly reach of millions with industry-specific trust.",
+      point2: "Network: Direct pipelines to Corporate Planning & R&D at major firms.",
+      point3: "Assets: The mobility base of 'Response' and expertise of 'Robosta'."
+    },
+    media: {
+      title: "Core Media Value",
+      m1_name: "Response.jp",
+      m1_tag: "Mobility General",
+      m1_desc: "28M Monthly PV. High affinity with EV, Autonomous Driving, and Industrial DX. Strong reach to major OEMs and suppliers.",
+      m2_name: "Robosta",
+      m2_desc: "Specialized Robot/AI media with 10k+ members. Acts as a trusted 'third-party' source to validate Chinese tech to the Japanese market."
+    },
+    schemes: {
+      title: "Business Schemes (5 Pillars)",
+      s1_title: "Seminar-led Matching",
+      s1_desc: "Generate leads via seminars, screen/interview them, and setup high-quality meetings. Success fee model.",
+      s2_title: "Paid Production",
+      s2_desc: "Packaged speaking slots and interviews on Robosta. Upfront payment model.",
+      s3_title: "Target Long-List",
+      s3_desc: "Leverage IID's database to create detailed lists of potential clients (departments, use-cases).",
+      s4_title: "Market Entry Support",
+      s4_desc: "Peripheral support including KOLs, Japanese website creation, and agency matching.",
+      s5_title: "Exhibition Reports",
+      s5_desc: "Joint coverage of Chinese expos, sold as paid reports/briefings to Japanese firms (~500k JPY)."
+    },
+    pricing: {
+      title: "Revenue & Pricing Model (Draft)",
+      p1_label: "Meeting Setup",
+      p1_price: "300k JPY / Meeting",
+      p1_detail: "50:50 Revenue Share. High-quality screening is the core value.",
+      p2_label: "Report + Briefing",
+      p2_price: "500k JPY / Company",
+      p2_detail: "Charged to Japanese firms. Additional custom research is optional.",
+      p3_label: "Production Package",
+      p3_price: "Custom Quote",
+      p3_detail: "Upfront payment required. Includes speaking, interviews, and lead gen flow."
+    },
+    future: {
+      title: "Scalability & Proposals",
+      f1: "PoC Design Support (Field intro, planning)",
+      f2: "Market/Regulation Diagnostics",
+      f3: "Cross-Media Events (Mobility x Robot)",
+      f4: "HR/Training Support (Materials for agencies)"
+    },
+    footer: {
+      text: "Building a sustainable ecosystem based on trust and results.",
+      contact: "Discuss Contract"
+    }
+  },
+  ko: {
+    langName: "한국어",
+    dir: "ltr",
+    hero: {
+      title: "로봇 분야 BtoB 매칭 및 프로모션 공동 사업",
+      subtitle: "주식회사 이드(IID, Inc.)와의 전략적 제휴 계획",
+      cta: "사업 계획 보기",
+      marketTitle: "미디어와 네트워크를 융합한 새로운 사업 스킴",
+      marketDesc: "단순한 광고 판매를 넘어 세미나, 시장 조사, 상담 주선까지 원스톱으로 제공하여 수익 모델을 구축합니다."
+    },
+    about: {
+      title: "파트너: 주식회사 이드 (IID, Inc.)",
+      desc: "2000년 설립, 도쿄증권거래소 상장(6038). 21개 장르 79개 미디어를 운영.",
+      point1: "미디어 파워: 월간 수천만 PV의 도달 범위와 업계 특화 신뢰성.",
+      point2: "네트워크: 대기업 경영 기획 및 기술 부서와의 직접적인 파이프라인.",
+      point3: "자산 가치: 'Response'의 모빌리티 기반과 'Robosta'의 전문성."
+    },
+    media: {
+      title: "핵심 미디어 가치",
+      m1_name: "Response.jp",
+      m1_tag: "모빌리티 종합",
+      m1_desc: "월간 2,800만 PV. EV, 자율주행 등 로봇 주변 영역과 친화성이 높음.",
+      m2_name: "Robosta",
+      m2_desc: "회원 수 1만 명 이상의 로봇/AI 전문 미디어. 중국 기업의 기술력을 제3자 관점에서 검증."
+    },
+    schemes: {
+      title: "공동 사업 스킴 (5가지 기둥)",
+      s1_title: "세미나 기반 상담 창출",
+      s1_desc: "공동 세미나로 모객 후, 1차 체크를 거쳐 유망한 상담만 주선. 성공 보수형 모델.",
+      s2_title: "유료 프로듀스",
+      s2_desc: "Robosta 등단 및 인터뷰 패키지. 선불제를 통한 확실한 수익 확보.",
+      s3_title: "상담용 롱 리스트",
+      s3_desc: "데이터베이스를 활용한 타겟 기업 상세 리스트 제공.",
+      s4_title: "일본 시장 진입 지원",
+      s4_desc: "KOL 연계, 일본어 웹사이트 제작 등 프로모션 지원.",
+      s5_title: "전시회 리포트 (일본 기업용)",
+      s5_desc: "중국 전시회 공동 취재 및 일본 기업 대상 유료 리포트(약 50만 엔) 판매."
+    },
+    pricing: {
+      title: "수익 및 요금 모델 (안)",
+      p1_label: "상담 세팅",
+      p1_price: "30만 엔 / 사",
+      p1_detail: "수익 배분 50:50. 고품질 사전 스크리닝이 가치의 원천.",
+      p2_label: "리포트 + 보고회",
+      p2_price: "50만 엔 / 사",
+      p2_detail: "일본 기업 대상 과금. 추가 개별 조사는 별도 옵션.",
+      p3_label: "프로듀스 패키지",
+      p3_price: "개별 견적",
+      p3_detail: "선불 필수. 등단, 취재 포함."
+    },
+    future: {
+      title: "향후 확장성",
+      f1: "PoC 설계 지원",
+      f2: "시장/규제 단기 진단",
+      f3: "크로스 미디어 이벤트",
+      f4: "인재 교육 지원"
+    },
+    footer: {
+      text: "신뢰와 실적에 기반한 지속 가능한 생태계 구축.",
+      contact: "계약 협의 시작"
+    }
+  },
+  ar: {
+    langName: "العربية",
+    dir: "rtl",
+    hero: {
+      title: "الأعمال المشتركة: مطابقة وترويج الروبوتات BtoB",
+      subtitle: "خطة التحالف الاستراتيجي مع شركة IID",
+      cta: "عرض خطة العمل",
+      marketTitle: "مخطط جديد يدمج الإعلام والشبكة",
+      marketDesc: "تجاوز مبيعات الإعلانات لتوفير خدمة شاملة من الندوات إلى أبحاث السوق وإعداد الاجتماعات."
+    },
+    about: {
+      title: "الشريك: شركة IID",
+      desc: "تأسست عام 2000، مدرجة في بورصة طوكيو (6038). تدير 79 وسيلة إعلامية.",
+      point1: "قوة الإعلام: وصول شهري للملايين مع ثقة خاصة بالصناعة.",
+      point2: "الشبكة: خطوط مباشرة للتخطيط المؤسسي والبحث والتطوير في الشركات الكبرى.",
+      point3: "الأصول: قاعدة التنقل لـ 'Response' وخبرة 'Robosta'."
+    },
+    media: {
+      title: "قيمة الإعلام الأساسية",
+      m1_name: "Response.jp",
+      m1_tag: "النقل العام",
+      m1_desc: "28 مليون مشاهدة شهرياً. تقارب عالٍ مع المركبات الكهربائية والقيادة الذاتية.",
+      m2_name: "Robosta",
+      m2_desc: "وسائط روبوت/ذكاء اصطناعي متخصصة تضم أكثر من 10 آلاف عضو. تعمل كمصدر 'طرف ثالث' موثوق."
+    },
+    schemes: {
+      title: "مخططات الأعمال (5 ركائز)",
+      s1_title: "المطابقة بقيادة الندوات",
+      s1_desc: "توليد العملاء المحتملين عبر الندوات، وفحصهم، وإعداد اجتماعات عالية الجودة. نموذج رسوم النجاح.",
+      s2_title: "الإنتاج المدفوع",
+      s2_desc: "حزم التحدث والمقابلات في Robosta. نموذج الدفع المسبق.",
+      s3_title: "القائمة الطويلة المستهدفة",
+      s3_desc: "الاستفادة من قاعدة بيانات IID لإنشاء قوائم مفصلة بالعملاء المحتملين.",
+      s4_title: "دعم دخول السوق",
+      s4_desc: "دعم محيطي يشمل المؤثرين، وإنشاء مواقع ويب يابانية، ومطابقة الوكالات.",
+      s5_title: "تقارير المعارض",
+      s5_desc: "تغطية مشتركة للمعارض الصينية، تُباع كتقارير مدفوعة للشركات اليابانية."
+    },
+    pricing: {
+      title: "نموذج الإيرادات والتسعير (مسودة)",
+      p1_label: "إعداد الاجتماع",
+      p1_price: "300 ألف ين / اجتماع",
+      p1_detail: "مشاركة الإيرادات 50:50. الفحص عالي الجودة هو القيمة الأساسية.",
+      p2_label: "تقرير + إحاطة",
+      p2_price: "500 ألف ين / شركة",
+      p2_detail: "تُفرض على الشركات اليابانية. البحث المخصص الإضافي اختياري.",
+      p3_label: "حزمة الإنتاج",
+      p3_price: "عرض سعر مخصص",
+      p3_detail: "الدفع المسبق مطلوب. يشمل التحدث والمقابلات."
+    },
+    future: {
+      title: "قابلية التوسع والمقترحات",
+      f1: "دعم تصميم إثبات المفهوم (PoC)",
+      f2: "تشخيص السوق/اللوائح",
+      f3: "فعاليات عبر الوسائط",
+      f4: "دعم الموارد البشرية/التدريب"
+    },
+    footer: {
+      text: "بناء نظام بيئي مستدام قائم على الثقة والنتائج.",
+      contact: "مناقشة العقد"
+    }
+  }
+};
+
+
+        function setLanguage(lang) {
+            const data = translations[lang];
+            
+            // Update direction
+            if (data.dir === 'rtl') {
+                document.body.dir = 'rtl';
+                document.body.classList.add('rtl');
+            } else {
+                document.body.dir = 'ltr';
+                document.body.classList.remove('rtl');
+            }
+
+            // Update current lang name
+            document.getElementById('current-lang-name').textContent = data.langName;
+
+            // Update text content
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                const keys = key.split('.');
+                let value = data;
+                keys.forEach(k => {
+                    if (value) value = value[k];
+                });
+                if (value) el.textContent = value;
+            });
+            
+            // Re-render icons if needed (usually not needed for text changes, but good practice if icons depended on lang)
+            lucide.createIcons();
+        }
+
+        // Initialize
+        lucide.createIcons();
+        setLanguage('zh'); // Default to Chinese as in React code
+    </script>
+</body>
+</html>
